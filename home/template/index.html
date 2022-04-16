@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>working</p>
+    {% for item in all_items %}
+      <a href="{% url 'posts' item.letter %}"><p>{{item.letter}}</p></a>
+    {% endfor %}
+
+    <form  action="{% url 'home' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="letter" placeholder="enter letter"><br>
+      <input type="text" name="word" placeholder="enter word"><br>
+      <input type="text" name="defi" placeholder="enter defination"><br>
+      <input type="text" name="example" placeholder="enter "><br>
+      <input type="submit" name="submit" value="Submit"><br>
+
+    </form>
+  </body>
+</html>
